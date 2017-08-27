@@ -20,9 +20,9 @@ var locationOverview = "Little Rock is the capital city of the state of Arkansas
 
 var HelpMessage = "Here are some things you  can say: Give me an attraction. Tell me about " + location + ". Tell me the top five things to do. Tell me the local news.  What would you like to do?";
 
-var moreInformation = "See your  Alexa app for  more  information."
+var moreInformation = "See your  Alexa app for  more  information.";
 
-var tryAgainMessage = "please try again."
+var tryAgainMessage = "please try again.";
 
 var noAttractionErrorMessage = "What attraction was that? " + tryAgainMessage;
 
@@ -45,19 +45,19 @@ var output = "";
 var alexa;
 
 var attractions = [
-    { name: "Little Rock Central High School", content: "Interpreting the Civil Rights Movement with an emphasis on school integration, this National Historic Site focuses on the 1957 desegregation crisis that resulted when Arkansas Governor Orval Faubus ordered National Guard troops to prevent the first African American students The Little Rock Nine from entering formerly all white Little Rock Central High School, leading to federal intervention by order of President Dwight Eisenhower.",
-    { name: "Pinnacle Mountain State Park", content: "Opened in 1977, the Pinnacle Mountain State Park serves as a center for education, recreation and preservation.",
-    { name: "William J. Clinton Presidential Library", content: "The William J. Clinton Presidential Center and Park, located on the banks of the Arkansas River in Little Rock, Arkansas, attracts hundreds of thousands of visitors from around the world to its grounds each year. Opened in 2004, the Center is home to the Little Rock offices of the Clinton Foundation, the William J. Clinton Presidential Library and Museum, and the University of Arkansas Clinton School of Public Service.",
-    { name: "Big Dam Bridge", content: "Experience the longest pedestrian and bicycle bridge in North America, built specifically for that use. This impressive structure was named the Big Dam Bridge because of its massive 4,226 foot span built atop Murray Lock and Dam. Elevated up to 90 feet above the Arkansas River, the Big Dam Bridge connects over 14 miles of scenic riverside trails in the cities of Little Rock and North Little Rock, and assists in the connection of 70,000 acres of various city, county, state and federal park land.",
-    { name: "Riverfront Park", content: "Riverfront Park stretches eleven blocks on the south bank of the Arkansas River in downtown Little Rock. The Park provides 33 acres of urban parkland for outdoor events, leisure activities and a glimpse of the state's history. ",
+    { name: "Little Rock Central High School", content: "Interpreting the Civil Rights Movement with an emphasis on school integration, this National Historic Site focuses on the 1957 desegregation crisis that resulted when Arkansas Governor Orval Faubus ordered National Guard troops to prevent the first African American students The Little Rock Nine from entering formerly all white Little Rock Central High School, leading to federal intervention by order of President Dwight Eisenhower." },
+    { name: "Pinnacle Mountain State Park", content: "Opened in 1977, the Pinnacle Mountain State Park serves as a center for education, recreation and preservation." },
+    { name: "William J. Clinton Presidential Library", content: "The William J. Clinton Presidential Center and Park, located on the banks of the Arkansas River in Little Rock, Arkansas, attracts hundreds of thousands of visitors from around the world to its grounds each year. Opened in 2004, the Center is home to the Little Rock offices of the Clinton Foundation, the William J. Clinton Presidential Library and Museum, and the University of Arkansas Clinton School of Public Service." },
+    { name: "Big Dam Bridge", content: "Experience the longest pedestrian and bicycle bridge in North America, built specifically for that use. This impressive structure was named the Big Dam Bridge because of its massive 4,226 foot span built atop Murray Lock and Dam. Elevated up to 90 feet above the Arkansas River, the Big Dam Bridge connects over 14 miles of scenic riverside trails in the cities of Little Rock and North Little Rock, and assists in the connection of 70,000 acres of various city, county, state and federal park land." },
+    { name: "Riverfront Park", content: "Riverfront Park stretches eleven blocks on the south bank of the Arkansas River in downtown Little Rock. The Park provides 33 acres of urban parkland for outdoor events, leisure activities and a glimpse of the state's history. " },
 ];
 
 var topFive = [
-    { number: "1", caption: "Visit the William J. Clinton Presidential Library.", more: "The Clinton Library holds the collections of Bill Clinton's presidency. It also has a wonderful restaurant, 42, and a replica of the Oval Office. Follow your visit with a stroll along the pedestrian bridge and park."
+    { number: "1", caption: "Visit the William J. Clinton Presidential Library.", more: "The Clinton Library holds the collections of Bill Clinton's presidency. It also has a wonderful restaurant, 42, and a replica of the Oval Office. Follow your visit with a stroll along the pedestrian bridge and park." },
     { number: "2", caption: "Get lunch at the River Market.", more: "Resting on one of the banks of the Arkansas River, the River Market District was developed in the 1990s to become one of the most vibrant areas of the city with a range of different attractions on show.One of these is the Ottenheimer Market Hall which is a food area where you will find old fashioned stalls run by a variety of vendors.There is also a farmers’ market here as well as the River Market Tower.", location: "Pike Place Market PDA, 85 Pike Street, Room 500, Seattle, WA 98101", contact: "info@pikeplacemarket.org \n 206 682 7453" },
-    { number: "3", caption: "Walk along the Big Dam Bridge.", more: "Big Dam Bridge has the claim to fame of being the longest pedestrian and cycle bridge in the whole of the United States.The bridge links over 20 miles of trails that skirt along the river and acts as a connection between Little Rock and North Little Rock.",
-    { number: "4", caption: "Discover Arkansas wildlife at the William E.Clark Presidential Park Wetlands.", more: "The Bill Clark Presidential Park Wetlands involves the restoration of 13 acres of Arkansas wetlands along the Arkansas River.The Wetlands is designed to showcase wildlife and river life in a restored wetlands habitat for the education and enjoyment of millions of national and international visitors to the Clinton Presidential Park and Library.",
-    { number: "5", caption: "Visit the Old State House.", more: "The Old State House is known in Little Rock for its cultural and historical significance and was also the place where Bill Clinton celebrated his election night during the presidential race in 1992. The building dates from 1833 and is now a United States National Historic Landmark, and with that in mind it has also been turned into a museum.",
+    { number: "3", caption: "Walk along the Big Dam Bridge.", more: "Big Dam Bridge has the claim to fame of being the longest pedestrian and cycle bridge in the whole of the United States.The bridge links over 20 miles of trails that skirt along the river and acts as a connection between Little Rock and North Little Rock." },
+    { number: "4", caption: "Discover Arkansas wildlife at the William E.Clark Presidential Park Wetlands.", more: "The Bill Clark Presidential Park Wetlands involves the restoration of 13 acres of Arkansas wetlands along the Arkansas River.The Wetlands is designed to showcase wildlife and river life in a restored wetlands habitat for the education and enjoyment of millions of national and international visitors to the Clinton Presidential Park and Library." },
+    { number: "5", caption: "Visit the Old State House.", more: "The Old State House is known in Little Rock for its cultural and historical significance and was also the place where Bill Clinton celebrated his election night during the presidential race in 1992. The building dates from 1833 and is now a United States National Historic Landmark, and with that in mind it has also been turned into a museum." },
 ];
 
 var topFiveIntro = "Here are the top five things to  do in " + location + ".";
@@ -225,12 +225,10 @@ var topFiveHandlers = Alexa.CreateStateHandler(states.TOPFIVE, {
         if(this.event.request.intent.slots.attraction ) {
             if (this.event.request.intent.slots.attraction.value) {
                 slotValue = this.event.request.intent.slots.attraction.value;
-
             }
         }
 
         if (slotValue > 0 && slotValue <= topFive.length) {
-
             var index = parseInt(slotValue) - 1;
             var selectedAttraction = topFive[index];
 
