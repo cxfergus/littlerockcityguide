@@ -1,0 +1,27 @@
+{
+  "name": "little-rock-city-guide",
+  "version": "1.0.0",
+  "description": "A city guide Alexa skill.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cxfergus/littlerockcityguide.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "alexa",
+    "skill",
+    "fact",
+    "little rock"
+  ],
+  "author": "Catherine Ferguson <cthrnferguson@gmail.com",
+  "contributors": [
+    "Scott Ferguson <fergusonic85@gmail.com>"
+  ],
+  "license": "Apache-2.0",
+  "dependencies": {
+    "alexa-sdk": "^1.0.12"
+  }
+}
