@@ -8,6 +8,8 @@ var states = {
 
 var location = "Little Rock";
 
+var newsLocation = "Arkansas";
+
 var numberOfResults = 3;
 
 var APIKey = process.env.API_KEY;
@@ -148,7 +150,7 @@ var startSearchHandlers = Alexa.CreateStateHandler(states.SEARCHMODE, {
         this.emit(':ask', output, HelpMessage);
     },
     'getNewsIntent': function () {
-        httpGet(location, function (response) {
+        httpGet(newsLocation, function (response) {
 
             // Parse the response into a JSON object ready to be formatted.
             var responseData = JSON.parse(response);
@@ -281,8 +283,7 @@ function httpGet(query, callback) {
     console.log("/n QUERY: "+query);
 
     var options = {
-        //http://api.nytimes.com/svc/search/v2/articlesearch.json?q=seattle&sort=newest&api-key=
-        host: 'api.nytimes.com',
+        host: 'http://api.nytimes.com',
         path: '/svc/search/v2/articlesearch.json?q=' + query + '&sort=newest&api-key=' + APIKey,
         method: 'GET'
     };
