@@ -8,11 +8,12 @@ var states = {
 
 var location = "Little Rock";
 
+// make sure this is a location the NYT API recognizes
 var newsLocation = "Arkansas";
 
 var numberOfResults = 3;
 
-var APIKey = process.env.API_KEY;
+var NYTAPIKey = process.env.API_KEY;
 
 var welcomeMessage = location + " Guide. You can ask me for an attraction, the local news, or  say help. What will it be?";
 
@@ -280,27 +281,19 @@ exports.handler = function (event, context, callback) {
 
 // Create a web request and handle the response.
 function httpGet(query, callback) {
-    console.log("/n QUERY: "+query);
+    console.log("QUERY: "+query);
 
-    var options = {
-        host: 'http://api.nytimes.com',
-        path: '/svc/search/v2/articlesearch.json?q=' + query + '&sort=newest&api-key=' + APIKey,
-        method: 'GET'
-    };
+    var req = http.get('http://api.nytimes.com/svc/search/v2/articlesearch.json?q=' + query + '&sort=newest&api-key=' + NYTAPIKey, (res) => {
+        var body = '';
 
-    var req = http.request(options, (res) => {
+        res.on('data', (d) => {
+            body += d;
+        });
 
-            var body = '';
-
-    res.on('data', (d) => {
-        body += d;
-});
-
-    res.on('end', function () {
-        callback(body);
+        res.on('end', function () {
+            callback(body);
+        });
     });
-
-});
     req.end();
 
     req.on('error', (e) => {
